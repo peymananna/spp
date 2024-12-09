@@ -55,17 +55,23 @@
 <div class="calculator">
     <h2>محاسبه‌گر هزینه سیگار کشیدن</h2>
     <form id="smokingCalculator">
-    <label for="packPrice">میانگین قیمت هر پاکت سیگار (تومان):</label>
-    <input type="number" id="packPrice" placeholder="مثلاً 50000" required>
+        <label for="packPrice">میانگین قیمت هر پاکت سیگار (تومان):</label>
+        <input type="number" id="packPrice" placeholder="مثلاً 50000" required>
 
-    <label for="packsPerDay">تعداد پاکت‌های مصرفی در روز:</label>
-    <input type="number" id="packsPerDay" placeholder="مثلاً 2" required>
+        <label for="packsPerDay">تعداد پاکت‌های مصرفی در روز:</label>
+        <input type="number" id="packsPerDay" placeholder="مثلاً 2" required>
 
-    <label for="timePeriod">مدت زمان (روز):</label>
-    <input type="number" id="timePeriod" placeholder="مثلاً 30" required>
-    <button type="submit">محاسبه هزینه</button>
+        <label for="timePeriod">مدت زمان (روز):</label>
+        <input type="number" id="timePeriod" placeholder="مثلاً 30" required>
+
+        <button type="submit">محاسبه هزینه</button>
     </form>
-<p id="result"></p>
+    <p id="result"></p>
 </div>
+
+<canvas id="costChart"></canvas>
+
+<!-- اسکریپت جاوا اسکریپت -->
+<script src="m.js"></script>
 <script src=".//m.js"></script>
 </html>

@@ -1,16 +1,46 @@
-document.getElementById("smokingCalculator").addEventListener("submit", function (e) {
+document.getElementById('smokingCalculator').addEventListener('submit', function(e) {
     e.preventDefault();
-  
-    const packPrice = parseFloat(document.getElementById("packPrice").value);
-    const packsPerDay = parseFloat(document.getElementById("packsPerDay").value);
-    const timePeriod = parseFloat(document.getElementById("timePeriod").value);
-  
-    if (isNaN(packPrice) || isNaN(packsPerDay) || isNaN(timePeriod)) {
-      document.getElementById("result").innerText = "لطفاً تمامی مقادیر را به درستی وارد کنید.";
-      return;
+    
+    // دریافت ورودی‌ها
+    var packPrice = parseFloat(document.getElementById('packPrice').value);
+    var packsPerDay = parseFloat(document.getElementById('packsPerDay').value);
+    var timePeriod = parseFloat(document.getElementById('timePeriod').value);
+
+    // محاسبه هزینه
+    var totalCost = packPrice * packsPerDay * timePeriod;
+    
+    // نمایش نتیجه
+    document.getElementById('result').innerHTML = `هزینه سیگار کشیدن شما برای ${timePeriod} روز: ${totalCost.toLocaleString()} تومان`;
+
+    // داده‌های نمودار
+    var labels = ['هزینه کل'];
+    var data = [totalCost];
+    
+    // ایجاد نمودار
+    var ctx = document.getElementById('costChart').getContext('2d');
+    if (window.barChart) {
+        window.barChart.destroy();  // حذف نمودار قبلی در صورت وجود
     }
-  
-    const totalCost = packPrice * packsPerDay * timePeriod;
-  
-    document.getElementById("result").innerText = `هزینه کل سیگار کشیدن در این مدت: ${totalCost.toLocaleString()} تومان`;
-  });
+
+    window.barChart = new Chart(ctx, {
+        type: 'bar',  // نوع نمودار (می‌توانید به 'pie' یا 'line' تغییر دهید)
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'هزینه کل سیگار کشیدن',
+                data: data,
+                backgroundColor: '#4CAF50',
+                borderColor: '#388E3C',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
