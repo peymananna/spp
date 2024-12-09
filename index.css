@@ -1,151 +1,171 @@
-* {
-    box-sizing: border-box;
+/* پایه و تنظیمات عمومی */
+body {
+    font-family: 'Yekan', sans-serif;
+    background: linear-gradient(135deg, #ff6347, #ffcc00); /* گرادیانت جذاب */
+    color: #fff;
     margin: 0;
     padding: 0;
-    font-family: 'Yekan', sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    width: 100%;
 }
 
-body {
-    background-color: #f4f4f9;
-    color: #333;
-    padding: 20px;
+/* تنظیمات متن عمومی */
+h1, h2, h3, p {
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+h1 {
+    font-size: 2.5rem;
     text-align: center;
 }
 
-h1, h2 {
-    font-size: 1.8em;
-    margin: 20px 0;
-    color: #4CAF50;
+h2, h3 {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    text-align: center;
 }
 
-h3 {
-    font-size: 1.5em;
-    margin-top: 20px;
-    color: #388E3C;
+/* استایل برای بخش‌ها (sections) */
+.sec0, .sec1, .sec11, .sec2, .sec21, .sec3, .sec31, .sec4, .sec41 {
+    padding: 20px;
+    margin: 15px auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    width: 90%; /* عرض 90% به جای 100% برای جلوگیری از برش محتوا */
+    max-width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-in-out forwards;
 }
 
-p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin: 15px 0;
+/* انیمیشن برای ورودی */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
+/* دکمه‌ها */
 button {
-    padding: 12px 30px;
-    background-color: #4CAF50;
+    background-color: #ff6347;
     color: white;
+    padding: 15px 30px;
     border: none;
-    border-radius: 8px;
+    border-radius: 30px;
+    font-size: 1.2rem;
     cursor: pointer;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 20px auto;
 }
 
 button:hover {
-    background-color: #388E3C;
-    transform: scale(1.1);
+    background-color: #ffcc00;
+    transform: scale(1.1); /* بزرگتر شدن دکمه */
 }
 
+/* فرم محاسبه‌گر */
 .calculator {
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 100%;
 }
 
-input[type="number"] {
+.calculator input, .calculator button {
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    font-size: 1.2em;
-    transition: border-color 0.3s ease;
+    border-radius: 5px;
+    border: 1px solid #ff6347;
 }
 
-input[type="number"]:focus {
-    border-color: #4CAF50;
+.calculator input:focus, .calculator button:focus {
+    outline: none;
+    border-color: #ffcc00;
 }
 
-#result {
-    font-size: 1.5em;
-    margin-top: 20px;
-    color: #388E3C;
+/* افکت‌های هاور برای لینک‌ها */
+a {
+    color: #ff6347;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* Canvas */
-#costChart {
-    width: 100%;
-    max-width: 500px;
-    margin: 30px auto;
+a:hover {
+    color: #ffcc00;
+    text-decoration: underline;
 }
 
-/* Sec 0, Sec 1, Sec 2, Sec 3, Sec 4 */
-.sec0, .sec1, .sec11, .sec21, .sec31, .sec41 {
-    padding: 15px;
-    background-color: #fff;
-    margin: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    line-height: 1.6;
-}
-
-/* موبایل */
-@media (max-width: 768px) {
-    h1, h2 {
-        font-size: 1.5em;
+/* ریسپانسیو (پاسخگویی برای موبایل) */
+@media screen and (max-width: 768px) {
+    body {
+        background: linear-gradient(135deg, #ff6347, #ffcc00); /* گرادیانت برای موبایل */
+        font-size: 16px; /* اندازه فونت مناسب موبایل */
+        padding: 0 10px; /* حذف فاصله‌های اضافی */
     }
 
-    h3 {
-        font-size: 1.2em;
+    h1 {
+        font-size: 2rem; /* اندازه عنوان‌ها برای موبایل */
     }
 
-    .sec0, .sec1, .sec11, .sec21, .sec31, .sec41 {
-        font-size: 1em;
-        padding: 10px;
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    .sec0, .sec1, .sec2, .sec3, .sec4, .sec11, .sec21, .sec31, .sec41 {
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 1rem;
+        opacity: 1;
+        transform: translateY(0);
+        animation: fadeIn 1s ease-in-out forwards;
+        background-color: rgba(0, 0, 0, 0.7); /* کمی تیره‌تر برای گوشی */
+        width: 100%; /* اطمینان از پوشش 100 درصد عرض صفحه */
+    }
+
+    .sec0 {
+        font-size: 1.1rem;
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    .sec1, .sec2, .sec3, .sec4, .sec11, .sec21, .sec31, .sec41 {
+        font-size: 1rem;
     }
 
     button {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-
-    input[type="number"] {
-        font-size: 1em;
-    }
-
-    #costChart {
-        width: 90%;
-        max-width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+        width: 100%; /* عرض دکمه به 100% */
     }
 
     .calculator {
+        margin: 20px 0;
         padding: 15px;
+    }
+
+    .calculator input, .calculator button {
+        font-size: 1rem;
+        padding: 12px 10px;
+        width: 100%;
+    }
+
+    /* حذف افکت‌ها برای راحتی بیشتر در موبایل */
+    button:hover {
+        transform: none;
     }
 }
 
-/* تبلت */
-@media (max-width: 1024px) {
-    h1, h2 {
-        font-size: 1.7em;
-    }
-
-    .sec0, .sec1, .sec11, .sec21, .sec31, .sec41 {
-        padding: 15px;
-    }
-
-    input[type="number"] {
-        font-size: 1.1em;
-    }
-
-    button {
-        font-size: 1.1em;
-    }
-
-    #costChart {
-        width: 90%;
-        max-width: 100%;
-    }
+/* جلوگیری از نیاز به اسکرول افقی */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
