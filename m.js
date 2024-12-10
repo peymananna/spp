@@ -44,3 +44,5 @@ document.getElementById('smokingCalculator').addEventListener('submit', function
         }
     });
 });
+
+
