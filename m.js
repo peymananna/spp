@@ -46,3 +46,24 @@ document.getElementById('smokingCalculator').addEventListener('submit', function
 });
 
 
+
+
+
+const cigaretteBody = document.querySelector(".body");
+const ash = document.querySelector(".ash");
+
+window.addEventListener("scroll", () => {
+  const maxHeight = 120; // ارتفاع اولیه سیگار
+  const scrollPosition = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+  // محاسبه طول جدید سیگار
+  const newHeight = Math.max(maxHeight - (scrollPosition / maxScroll) * maxHeight, 10);
+
+  // تنظیم طول سیگار
+  cigaretteBody.style.height = `${newHeight}px`;
+
+  // افزایش خاکستر
+  const ashHeight = Math.min(10 + (scrollPosition / maxScroll) * 50, 50);
+  ash.style.height = `${ashHeight}px`;
+});

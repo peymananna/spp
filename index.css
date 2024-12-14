@@ -137,3 +137,66 @@ div[class^="sec"] {
 
 
 
+
+
+.cigarette-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .cigarette {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter {
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to right, #d4a373, #c28f5c);
+    border: 2px solid #9c7748;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .body {
+    width: 20px;
+    height: 120px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    border: 2px solid #d9d9d9;
+    border-top: none;
+  }
+  
+  .ash {
+    width: 20px;
+    height: 10px;
+    background: linear-gradient(to bottom, #bbb, #777);
+    border: 2px solid #555;
+    border-top: none;
+    border-radius:3px 3px 0 0;
+  }
+  
+  .smoke {
+    width: 40px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(200, 200, 200, 0.5), transparent);
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    animation: smoke-rise 3s infinite ease-out;
+    opacity: 0.7;
+    border-radius: 50%;
+  }
+  
+  @keyframes smoke-rise {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(-20px, -150px) scale(2);
+      opacity: 0;
+    }
+  }
