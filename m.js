@@ -67,3 +67,26 @@ window.addEventListener("scroll", () => {
   const ashHeight = Math.min(10 + (scrollPosition / maxScroll) * 50, 50);
   ash.style.height = `${ashHeight}px`;
 });
+
+
+// انتخاب المنت‌ها
+const popup = document.getElementById("notification-popup");
+const popupMessage = document.getElementById("popup-message");
+const closeButton = document.getElementById("popup-close");
+
+// تابع برای نمایش پاپ‌آپ
+function showPopup(message) {
+  popupMessage.textContent = message; // تنظیم پیام دلخواه
+  popup.classList.remove("hidden"); // نمایش پاپ‌آپ
+}
+
+// بستن پاپ‌آپ
+closeButton.addEventListener("click", () => {
+  popup.classList.add("hidden"); // مخفی کردن پاپ‌آپ
+});
+
+// نمایش پاپ‌آپ هنگام باز شدن سایت
+window.addEventListener("load", () => {
+  showPopup("سلام دوست من! پایین این صفحه منتظر یه سری مطالب جذاب و مهم باش! حتماً یه نگاه بنداز. قول می‌دم ارزشش رو داره. 😉"); // پیام دلخواه خود را اینجا وارد کنید
+});
+
