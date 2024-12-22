@@ -51,6 +51,9 @@ div[class^="sec"] {
     font-size: 1rem;
     line-height: 1.8;
     color: #eee;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .sec11 p, .sec21 p, .sec31 p, .sec41 p {
@@ -293,3 +296,10 @@ footer {
   }
 
 
+img{
+  margin-right: 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  
+}
